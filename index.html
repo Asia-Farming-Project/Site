@@ -3,29 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Discord Bot – Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>DBD Asia Bot</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #001f3f, #000814);
+      color: #ffe066;
+      min-height: 100vh;
+    }
+    .navbar {
+      background-color: #8b0000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      color: white;
+    }
+    .nav-title {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #ffe066;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .nav-links a:hover {
+      color: white;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 25px;
+        background-color: #8b0000;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #000;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+    }
+    .center-card {
+      max-width: 700px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .center-card h1 {
+      color: #ffcf00;
+      margin-bottom: 20px;
+    }
+    .center-card p {
+      color: #f0e68c;
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>DBD Asia Queue Estimator</h1>
-    <button id="menu-toggle">☰</button>
-    <nav id="menu">
+  <nav class="navbar">
+    <div class="nav-title">DBD Asia Bot</div>
+    <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="tos.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </nav>
-  </header>
+      <a href="tos.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </nav>
 
-  <main>
-    <h2>Estimate Your DBD Queue Times</h2>
-    <p>This Discord bot helps estimate queue times on Asian servers in <strong>Dead by Daylight</strong>. It learns from historical data submitted by users in a private application program.</p>
-    <p>Whether you're playing Killer or Survivor, our bot gives you a rough time estimate so you know when to grab snacks or dodge lobbies.</p>
-    <p>Totally not AI-powered. Or maybe it is. Who knows? Just don’t ask it about Entity lore.</p>
+  <main class="center-card">
+    <h1>Estimate Your Queue Times</h1>
+    <p>This Discord bot helps estimate queue times on Asian servers for Dead by Daylight, using historical match data submitted through a private application system.</p>
+    <p>Built for players who want to know if it’s time to queue up - or queue out.</p>
   </main>
 
-  <footer>&copy; 2025 Your Bot Name</footer>
-
-  <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-links');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
