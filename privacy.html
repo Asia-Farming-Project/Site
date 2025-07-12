@@ -4,30 +4,117 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #001f3f, #000814);
+      color: #ffe066;
+      min-height: 100vh;
+    }
+    .navbar {
+      background-color: #8b0000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      color: white;
+    }
+    .nav-title {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #ffe066;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .nav-links a:hover {
+      color: white;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 25px;
+        background-color: #8b0000;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #000;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+    }
+    .center-card {
+      max-width: 700px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .center-card h1 {
+      color: #ffcf00;
+      margin-bottom: 20px;
+    }
+    .center-card p,
+    .center-card li {
+      color: #f0e68c;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Privacy Policy</h1>
-    <button id="menu-toggle">☰</button>
-    <nav id="menu">
+  <nav class="navbar">
+    <div class="nav-title">DBD Asia Bot</div>
+    <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="tos.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </nav>
-  </header>
+      <a href="tos.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </nav>
 
-  <main>
-    <p>No user data is stored.</p>
+  <main class="center-card">
+    <h1>Privacy Policy</h1>
+    <p>This page outlines what data is collected, how it's used, and your control over it.</p>
     <ul>
-      <li>The bot operates with minimal Discord metadata.</li>
-      <li>All data is provided voluntarily via application and stored locally by the bot owner.</li>
-      <li>No third-party sharing, no tracking, no shady stuff.</li>
-      <li>If you stop using the bot, no data stays behind.</li>
+      <li>A small, closed group of players are given an application that runs alongside Dead by Daylight.</li>
+      <li>This app monitors specific pixel changes that only occur when a match loads into the lobby.</li>
+      <li>When a match begins, a timestamp fragment is sent to a private server to record estimated queue time.</li>
+      <li>This raw data is stored securely for 15 days. After that period, an average is calculated from all entries - including time slots - and the raw data is deleted.</li>
+      <li>No data is collected from the general public. Only authorized users can run the tracking tool, and access is limited due to the system’s vulnerability to reverse engineering.</li>
+      <li>Aggregated/analyzed data (averages, trends) may be published publicly, but never includes user-specific information.</li>
+      <li>No data is stored or submitted without the explicit, end-to-end permission of the user involved.</li>
+      <li>If a user requests their dataset to be deleted, that request will be honored within 5 business days. Once removed, their data is also excluded from the latest average results.</li>
     </ul>
   </main>
 
-  <footer>&copy; 2025 Your Bot Name</footer>
-  <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-links');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
