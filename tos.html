@@ -4,30 +4,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms of Service</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Same style block as above — copy-paste as-is */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #001f3f, #000814);
+      color: #ffe066;
+      min-height: 100vh;
+    }
+    .navbar {
+      background-color: #8b0000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      color: white;
+    }
+    .nav-title {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #ffe066;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .nav-links a:hover {
+      color: white;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 25px;
+        background-color: #8b0000;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #000;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+    }
+    .center-card {
+      max-width: 700px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .center-card h1 {
+      color: #ffcf00;
+      margin-bottom: 20px;
+    }
+    .center-card p, .center-card li {
+      color: #f0e68c;
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Terms of Service</h1>
-    <button id="menu-toggle">☰</button>
-    <nav id="menu">
+  <nav class="navbar">
+    <div class="nav-title">DBD Asia Bot</div>
+    <div class="nav-links" id="nav-links">
       <a href="index.html">Home</a>
-      <a href="tos.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </nav>
-  </header>
+      <a href="tos.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </nav>
 
-  <main>
-    <p>By using this Discord bot, you agree to the following:</p>
+  <main class="center-card">
+    <h1>Terms of Service</h1>
+    <p>By using this bot, you agree to the following:</p>
     <ul>
-      <li>The bot is used in private servers only, and access is controlled via application.</li>
-      <li>You may not misuse or exploit the bot in any way.</li>
-      <li>No guarantees are made about accuracy or uptime.</li>
-      <li>Use is at your own risk. If you rage quit due to a wrong queue estimate, that’s on you.</li>
+      <li>Access is only granted through a private application process.</li>
+      <li>The bot is provided “as-is” with no guarantee of uptime or results.</li>
+      <li>Any abuse or misuse may result in revoked access.</li>
+      <li>We reserve the right to change or remove functionality at any time.</li>
     </ul>
   </main>
 
-  <footer>&copy; 2025 Your Bot Name</footer>
-  <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('nav-links');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
